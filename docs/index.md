@@ -1,36 +1,47 @@
 ---
 layout: page
-title: Home Model Workshop
+title: Home
 permalink: /
 ---
 
-# Build a house model, room by room
+# Home Model Workshop
 
-Home Model Workshop is a Blender add-on for arranging editable room footprints and turning the layout into a simple 3D house blockout. You choose a starting room program, arrange the rooms yourself, validate the plan, and build walls and floors when you are ready.
+**A Blender add-on for guided room layout and editable house-model blockouts.**
 
-> **Beta 0.1.0:** Generated plans are editable blockouts. Review dimensions, openings, and wall joins in Blender before using a model for further design work.
+Home Model Workshop helps you start from a room program and a visual placement guide, arrange the rooms yourself, validate the layout, and build floors and walls from the room footprints. It is designed as a blockout and layout tool, not an automatic architectural designer.
+
+> **Beta note:** Home Model Workshop 0.1.0 was built and smoke-tested in Blender 5.2.2. Generated models are editable blockouts and should be reviewed in Blender before further use. Blender 4.2.0 is the declared minimum version in the extension manifest, but compatibility with Blender 4.2 has not been independently verified.
 
 ## Start here
 
-- [Getting Started]({{ '/getting-started/' | relative_url }}): install the beta and create your first room layout.
-- [User Guide]({{ '/user-guide/' | relative_url }}): understand every panel section and layout rule.
-- [Roadmap]({{ '/roadmap/' | relative_url }}): see planned features and quality improvements.
-- [Doors and Windows]({{ '/user-guide/' | relative_url }}#adding-doors-and-windows): place opening frames and generate cutouts.
-- [Troubleshooting]({{ '/user-guide/' | relative_url }}#troubleshooting): resolve common validation and opening issues.
-- [Developer Guide]({{ '/developer-guide/' | relative_url }}): inspect the add-on structure and behavior contracts.
+- [Getting Started]({{ '/getting-started/' | relative_url }}) — install the add-on and build your first layout
+- [User Guide]({{ '/user-guide/' | relative_url }}) — full reference for every panel section and workflow
+- [Developer Guide]({{ '/developer-guide/' | relative_url }}) — implementation overview and behavior contracts
 
-## How the workflow works
+## What it does
 
-1. Choose the rooms you need and create separate room footprints with a visual shape guide.
-2. Move and resize the rooms into the arrangement you want. The guide is only a reference.
-3. Validate the layout. Overlaps are reported; open gaps are allowed.
-4. Build the model. Shared edges create one wall, and opening frames create cutouts when you rebuild.
+- Creates editable room footprints from a starter room program or imported meshes
+- Uses Box, L, H, and U visual placement guides
+- Lets you arrange rooms manually before building the model
+- Validates overlaps and opening-guide issues before rebuilds
+- Builds floors, walls, and optional room labels from the room footprints
+- Lets you place door and window frames manually and rebuild to apply cutouts
 
-## What the add-on creates
+## Typical workflow
 
-- Rectangular, editable room footprints.
-- Box, L, H, and U placement guides.
-- Floors and walls derived from the room footprints.
-- Manually placed door and window opening frames.
+1. Install and enable the add-on in Blender.
+2. Choose a starter guide shape and room set.
+3. Create the starter plan.
+4. Move and resize the room footprints into the layout you want.
+5. Validate the layout.
+6. Build or rebuild the house model.
+7. Add door and window frames after the walls are built, then rebuild to apply cutouts.
 
-The add-on does not automatically design a finished architectural plan. Hallways, room placement, and opening positions are user-directed.
+## Notes
+
+- The guide is visual only; the room footprints define the final layout.
+- Rooms do not need to fill the guide.
+- Hallways and circulation areas are placed manually.
+- Open gaps stay open and shared room edges create one wall.
+
+For detailed instructions, continue to the [Getting Started guide]({{ '/getting-started/' | relative_url }}).

@@ -5,13 +5,11 @@ permalink: /user-guide/
 ---
 
 <div class="hero-card">
-
-# Home Model Workshop User Guide
-
-Home Model Workshop creates an editable house blockout from rectangular room footprints. You arrange the rooms; the selected Box, L, H, or U shape is a visual placement guide. The guide does not control the final building outline, and the add-on is not an automatic architectural designer.
-
-> **Beta note:** Home Model Workshop 0.1.0 was built and smoke-tested in Blender 5.2.2. Blender 4.2.0 is the declared minimum version in the extension manifest, but compatibility with Blender 4.2 has not been independently verified.
-
+  <h1>Home Model Workshop User Guide</h1>
+  <p>Home Model Workshop creates an editable house blockout from rectangular room footprints. You arrange the rooms; the selected Box, L, H, or U shape is a visual placement guide. The guide does not control the final building outline, and the add-on is not an automatic architectural designer.</p>
+  <blockquote>
+    <p><strong>Beta note:</strong> Home Model Workshop 0.1.0 was built and smoke-tested in Blender 5.2.2. Blender 4.2.0 is the declared minimum version in the extension manifest, but compatibility with Blender 4.2 has not been independently verified.</p>
+  </blockquote>
 </div>
 
 ## Quick start
@@ -24,7 +22,9 @@ Home Model Workshop creates an editable house blockout from rectangular room foo
 6. Move and resize the separate room footprints into the arrangement you want. Keep them axis-aligned; do not rotate them.
 7. Click **Validate Project** to check the layout, then **Build / Rebuild House Model**.
 
-The first generated positions are a starting arrangement. You can change their positions and dimensions freely before building. If you need another room after generation, use **Add Room to Layout** in the Room Selection section.
+<div class="section-note">
+  The first generated positions are a starting arrangement. You can change their positions and dimensions freely before building. If you need another room after generation, use <strong>Add Room to Layout</strong> in the Room Selection section.
+</div>
 
 ## N-panel sections
 

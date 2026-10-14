@@ -3,7 +3,15 @@
 
 @import "minima";
 
-/* Page width and spacing */
+/* =========================
+   Base layout
+   ========================= */
+
+body {
+  background: #f6f8fb;
+  color: #243041;
+}
+
 .wrapper {
   max-width: 1100px;
 }
@@ -13,11 +21,16 @@
   padding-bottom: 3rem;
 }
 
+.post-content {
+  font-size: 1.02rem;
+}
+
 .post-content h1,
 .post-content h2,
 .post-content h3 {
   line-height: 1.2;
   margin-top: 2rem;
+  color: #17324d;
 }
 
 .post-content h1:first-child,
@@ -29,58 +42,189 @@
 .post-content p,
 .post-content ul,
 .post-content ol {
-  line-height: 1.7;
+  line-height: 1.75;
 }
 
-/* Homepage hero */
-.post-content > p strong:first-child {
-  display: inline-block;
-  font-size: 1.1rem;
-  line-height: 1.5;
-}
+/* =========================
+   Typography and links
+   ========================= */
 
-.post-content > blockquote {
-  border-left: 4px solid #2b6cb0;
-  background: #f7fbff;
-  padding: 1rem 1.25rem;
-  border-radius: 0.5rem;
-  color: #334155;
-}
-
-.post-content > blockquote p {
-  margin-bottom: 0;
-}
-
-/* Links */
 a {
+  color: #1f5fa8;
   text-underline-offset: 0.15em;
 }
 
 a:hover {
+  color: #17457a;
   text-decoration-thickness: 2px;
 }
 
-/* Tables */
+/* =========================
+   Hero / intro blocks
+   ========================= */
+
+.hero-card {
+  background: linear-gradient(180deg, #eef5ff 0%, #ffffff 100%);
+  border: 1px solid #cfdcf0;
+  border-radius: 1rem;
+  padding: 1.5rem 1.5rem 1.25rem;
+  margin: 0 0 1.75rem;
+  box-shadow: 0 8px 24px rgba(25, 44, 71, 0.06);
+}
+
+.hero-card h1,
+.hero-card h2,
+.hero-card h3 {
+  margin-top: 0;
+  color: #17324d;
+}
+
+.hero-card p:last-child {
+  margin-bottom: 0;
+}
+
+.hero-card blockquote {
+  border-left: 4px solid #4a84c4;
+  background: #f8fbff;
+  padding: 1rem 1.1rem;
+  border-radius: 0.75rem;
+  color: #33506b;
+  margin: 1rem 0 0;
+}
+
+.hero-card blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+/* =========================
+   Card / callout blocks
+   ========================= */
+
+.card,
+.callout,
+.info-card {
+  border: 1px solid #d7e0ea;
+  border-radius: 0.95rem;
+  background: #ffffff;
+  box-shadow: 0 6px 18px rgba(25, 44, 71, 0.05);
+  padding: 1.05rem 1.1rem;
+  margin: 1rem 0;
+}
+
+.card h2,
+.card h3,
+.callout h2,
+.callout h3,
+.info-card h2,
+.info-card h3 {
+  margin-top: 0;
+  color: #17324d;
+}
+
+.card p:last-child,
+.callout p:last-child,
+.info-card p:last-child {
+  margin-bottom: 0;
+}
+
+/* Section emphasis */
+.section-note {
+  background: #f8fbff;
+  border-left: 4px solid #4a84c4;
+  padding: 0.95rem 1.1rem;
+  border-radius: 0.65rem;
+  margin: 1.25rem 0;
+}
+
+/* =========================
+   Grids
+   ========================= */
+
+.cards,
+.card-grid,
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.cards > *,
+.card-grid > *,
+.feature-grid > * {
+  border: 1px solid #d7e0ea;
+  border-radius: 0.95rem;
+  background: #ffffff;
+  padding: 1rem 1.1rem;
+  box-shadow: 0 6px 18px rgba(25, 44, 71, 0.05);
+}
+
+.cards > * h3,
+.card-grid > * h3,
+.feature-grid > * h3 {
+  margin-top: 0;
+  color: #17324d;
+}
+
+/* =========================
+   Button-like links
+   ========================= */
+
+.post-content a[href*="/getting-started/"],
+.post-content a[href*="/user-guide/"],
+.post-content a[href*="/developer-guide/"] {
+  display: inline-block;
+  margin: 0.25rem 0.35rem 0.25rem 0;
+  padding: 0.6rem 0.95rem;
+  border-radius: 0.65rem;
+  border: 1px solid #2f6db2;
+  background: #2f6db2;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: 0 2px 6px rgba(47, 109, 178, 0.18);
+}
+
+.post-content a[href*="/getting-started/"]:hover,
+.post-content a[href*="/user-guide/"]:hover,
+.post-content a[href*="/developer-guide/"]:hover {
+  background: #24588f;
+  border-color: #24588f;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+/* =========================
+   Tables
+   ========================= */
+
 table {
   display: block;
   width: 100%;
   overflow-x: auto;
   border-collapse: collapse;
   margin: 1.5rem 0;
+  background: #ffffff;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 14px rgba(25, 44, 71, 0.04);
 }
 
 th,
 td {
-  padding: 0.75rem 1rem;
-  border: 1px solid #d7dde5;
+  padding: 0.78rem 1rem;
+  border: 1px solid #d7e0ea;
 }
 
 th {
-  background: #f4f7fb;
+  background: #eff5fb;
+  color: #17324d;
   text-align: left;
 }
 
-/* Lists */
+/* =========================
+   Lists and code
+   ========================= */
+
 ul,
 ol {
   padding-left: 1.5rem;
@@ -90,7 +234,6 @@ li + li {
   margin-top: 0.35rem;
 }
 
-/* Code blocks */
 pre,
 code {
   font-size: 0.95em;
@@ -98,38 +241,24 @@ code {
 
 pre {
   padding: 1rem;
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
   overflow-x: auto;
+  background: #f7f9fc;
+  border: 1px solid #d7e0ea;
 }
 
-/* Simple button-like links for the home page */
-.post-content a[href*="/getting-started/"],
-.post-content a[href*="/user-guide/"],
-.post-content a[href*="/developer-guide/"] {
-  display: inline-block;
-  margin: 0.25rem 0.35rem 0.25rem 0;
-  padding: 0.55rem 0.9rem;
-  border-radius: 0.5rem;
-  border: 1px solid #2b6cb0;
-  background: #2b6cb0;
-  color: #fff;
-  text-decoration: none;
-  font-weight: 600;
-}
+/* =========================
+   Mobile
+   ========================= */
 
-.post-content a[href*="/getting-started/"]:hover,
-.post-content a[href*="/user-guide/"]:hover,
-.post-content a[href*="/developer-guide/"]:hover {
-  background: #1f5a96;
-  border-color: #1f5a96;
-  text-decoration: none;
-}
-
-/* Mobile adjustments */
 @media screen and (max-width: 800px) {
   .page-content {
     padding-top: 1.5rem;
     padding-bottom: 2rem;
+  }
+
+  .hero-card {
+    padding: 1.2rem 1rem;
   }
 
   .post-content a[href*="/getting-started/"],
@@ -139,5 +268,11 @@ pre {
     width: 100%;
     text-align: center;
     margin-right: 0;
+  }
+
+  .cards,
+  .card-grid,
+  .feature-grid {
+    grid-template-columns: 1fr;
   }
 }

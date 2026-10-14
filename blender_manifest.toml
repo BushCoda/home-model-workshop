@@ -1,0 +1,10 @@
+schema_version = "1.0.0"
+id = "houseforge"
+version = "0.1.0"
+name = "Home Model Workshop"
+tagline = "Build editable house models from room layouts"
+maintainer = "Home Model Workshop contributors"
+type = "add-on"
+blender_version_min = "4.2.0"
+license = ["SPDX:GPL-3.0-or-later"]
+tags = ["Modeling", "Architecture"]

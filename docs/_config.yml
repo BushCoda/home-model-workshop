@@ -1,0 +1,11 @@
+title: Home Model Workshop
+description: Build editable house models from room layouts in Blender.
+theme: minima
+url: ""
+baseurl: "/home-model-workshop"
+markdown: kramdown
+header_pages:
+  - getting-started.md
+  - user-guide.md
+  - roadmap.md
+  - developer-guide.md

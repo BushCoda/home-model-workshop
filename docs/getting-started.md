@@ -13,7 +13,7 @@ permalink: /getting-started/
 3. Select the downloaded ZIP, install it, and enable **Home Model Workshop**.
 4. In the 3D Viewport, open the **Home Model Workshop** tab in the N-panel.
 
-The extension manifest declares Blender 4.2.0 as the minimum version. Blender 5.2.2 is the development target; confirm compatibility with smoke tests before release.
+The extension manifest declares Blender 4.2.0 as the minimum version. Blender 5.2.2 is the tested development target for this beta; compatibility with Blender 4.2 remains unverified.
 
 ## Create your first layout
 

@@ -16,8 +16,8 @@ The implementation is in `__init__.py`.
 | --- | --- | --- |
 | Scene/object helpers | `get_or_create_collection`, `make_box`, `room_bounds` | Create output collections, mesh boxes, and evaluate room bounds in world space. |
 | Starter-plan inputs | `HF_CustomRoomDefinition`, `HF_Settings`, `build_room_program` | Store scene settings and turn standard and custom room choices into named room records. |
-| Starter footprints and guide | `starter_rooms`, `layout_guide_outline`, `create_layout_guide`, `create_room_footprint` | Stage separate room rectangles and create a separate wire outline for the selected shape. |
-| Validation and topology | `collect_room_records`, `room_overlap_pairs`, `touching_edge_rooms`, `make_wall_segments` | Read room objects, repair missing/duplicate IDs, reject footprint overlaps, and derive unique wall segments from room edges. |
+| Starter footprints and guide | `starter_rooms`, `layout_guide_outline`, `create_layout_guide`, `create_room_footprint` | Stage separate room rectangles and create a separate wire outline for the guide. |
+| Validation and topology | `collect_room_records`, `room_overlap_pairs`, `touching_edge_rooms`, `make_wall_segments` | Read room objects, repair missing/duplicate IDs, reject footprint overlaps, and build shared wall segments. |
 | Openings | `create_opening_frame`, `find_opening_host`, `opening_segment_match`, `HF_OT_add_opening` | Place editable frame objects and match them to generated wall segments during rebuild. |
 | Build and project operations | `HF_OT_build_model`, `HF_OT_validate_project`, `HF_OT_clear_model`, `HF_OT_clear_openings` | Validate, build, and clear generated geometry or opening guides. |
 | User interface | `HF_PT_main_panel`, `HF_Settings.ui_show_*` | Draw the N-panel and retain each section's expanded state in the scene. |
@@ -27,10 +27,10 @@ The implementation is in `__init__.py`.
 
 1. `build_room_program(settings)` reads standard room controls and the custom-room list.
 2. `starter_rooms(...)` gives each room a default rectangle and leaves a placement gap between the staged footprints. `layout_shape` is used to draw the guide, not to partition rooms.
-3. Each room footprint is a mesh object in `HF_Room_Layout` with `houseforge_room`, `hf_room_id`, `room_name`, and `hf_room_zone` properties. The primary-suite grouping is stored in `hf_suite_id` where applicable.
-4. `collect_room_records()` calculates world-space XY bounds and ensures each included footprint has a unique room ID. Duplicating a Blender object copies its properties, so duplicates must be detected and assigned fresh IDs before topology is built.
+3. Each room footprint is a mesh object in `HF_Room_Layout` with `houseforge_room`, `hf_room_id`, `room_name`, and `hf_room_zone` properties. The primary-suite grouping is stored in `hf_suite_id` when present.
+4. `collect_room_records()` calculates world-space XY bounds and ensures each included footprint has a unique room ID. Duplicating a Blender object copies its properties, so duplicates must be repaired before a build.
 5. `room_overlap_pairs()` compares the rectangles. A non-zero intersection beyond `EPS` blocks both validation and model generation. The build check runs before the old generated collection is cleared.
-6. `make_wall_segments()` splits candidate boundaries at footprint coordinates. `touching_edge_rooms()` records which room lies on each side. An occupied boundary interval becomes one segment; it is marked internal when rooms touch on both sides. Empty regions between edges do not become walls.
+6. `make_wall_segments()` splits candidate boundaries at footprint coordinates. `touching_edge_rooms()` records which room lies on each side. An occupied boundary interval becomes one segment; it is then merged with adjacent compatible spans.
 7. `HF_OT_build_model` creates optional room slabs, walls and labels in `HF_Generated_Model`, applies valid opening frames, and joins generated mesh geometry into `HF_House_Model`.
 
 ## Important behavior contracts
@@ -54,4 +54,4 @@ The implementation is in `__init__.py`.
 
 ## Compatibility
 
-The extension manifest declares Blender 4.2.0 as the minimum version. Blender 5.2.2 is the development target; the repository does not yet record independent compatibility smoke-test results. The extension ID, operator IDs, and scene-property keys retain the legacy `houseforge` prefix to preserve compatibility with existing installs and saved scenes. UI grouping uses boolean properties and disclosure-arrow buttons stored on the scene.
+The extension manifest declares Blender 4.2.0 as the minimum version. Blender 5.2.2 is the tested development target; the repository does not yet record independent compatibility smoke-test results for Blender 4.2. The extension ID, operator IDs, and scene-property keys retain the legacy `houseforge` prefix to preserve compatibility with existing installs and saved scenes.

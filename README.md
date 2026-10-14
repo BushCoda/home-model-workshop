@@ -4,7 +4,7 @@
 
 Home Model Workshop starts with a room program and a visual footprint guide. You arrange and resize the rooms, validate the layout, and build the walls and floors when the plan is ready.
 
-> **Planned initial release: 0.1.0 beta.** The release has not yet been published. Generated models are editable blockouts and should be reviewed in Blender.
+> **Home Model Workshop 0.1.0 beta** was built and smoke-tested in Blender 5.2.2. Generated models are editable blockouts and should be reviewed in Blender before further use.
 
 ## Documentation
 
@@ -38,16 +38,16 @@ home-model-workshop/
 ```
 ## Requirements
 
-- Minimum Blender version declared in the extension manifest: 4.2.0. Blender 5.2.2 is the development target; compatibility should be confirmed with smoke tests before release.
+- Minimum Blender version declared in the extension manifest: 4.2.0. Blender 5.2.2 is the tested development target for this beta release.
 - Rectangular, axis-aligned room footprints. Rotated or irregular imported meshes are reduced to world-space bounding rectangles.
 
 ## Install
 
-Download the installable extension ZIP attached to a release. Do not use GitHub's automatically generated source-code ZIP. In Blender, open **Edit → Preferences → Extensions**, open the menu in the upper-right, and choose **Install from Disk**. Select the extension ZIP, install it, and enable **Home Model Workshop**.
+Download the installable extension ZIP attached to the release. Do not use GitHub's automatically generated source-code ZIP. In Blender, open **Edit → Preferences → Extensions**, open the menu in the upper-right, and choose **Install from Disk**. Select the extension ZIP, install it, and enable **Home Model Workshop**.
 
 ## GitHub Pages documentation
 
-The `/docs` folder is ready to publish as the Pages site. In GitHub, open **Settings → Pages**, choose **Deploy from a branch**, then select **main** and **/docs**. The site uses GitHub Pages' supported Minima Jekyll theme. If the repository slug is different from `home-model-workshop`, update `baseurl` in `docs/_config.yml` to `/<repository-slug>` before publishing.
+The `/docs` folder is ready to publish as the Pages site. In GitHub, open **Settings → Pages**, choose **Deploy from a branch**, then select **main** and **/docs**. The site uses GitHub Pages' subpath for this repository, so the Jekyll `baseurl` is set to `/home-model-workshop`.
 
 ## Create a release
 

@@ -5,19 +5,23 @@ permalink: /getting-started/
 ---
 
 <div class="hero-card">
-
-# Getting Started
-
-Home Model Workshop gives you a guided starting point for laying out rooms in Blender. This page walks through install, first setup, validation, and building your first house blockout.
-
-> **Beta note:** Home Model Workshop 0.1.0 was built and smoke-tested in Blender 5.2.2. Blender 4.2.0 is the declared minimum version in the extension manifest, but compatibility with Blender 4.2 has not been independently verified.
-
+  <h1>Getting Started</h1>
+  <p>Home Model Workshop gives you a guided starting point for laying out rooms in Blender. This page walks through install, first setup, validation, and building your first house blockout.</p>
+  <blockquote>
+    <p><strong>Beta note:</strong> Home Model Workshop 0.1.0 was built and smoke-tested in Blender 5.2.2. Blender 4.2.0 is the declared minimum version in the extension manifest, but compatibility with Blender 4.2 has not been independently verified.</p>
+  </blockquote>
 </div>
 
 ## 1. Install and open the add-on
 
-1. Download the installable ZIP from the GitHub Releases page after a release is published.
-2. In Blender, use **Edit → Preferences → Extensions → Install from Disk**, select the ZIP, install it, and enable **Home Model Workshop**.
+Download the installable add-on ZIP attached to the published [v0.1.0 release](https://github.com/BushCoda/home-model-workshop/releases/tag/v0.1.0).
+
+Do **not** use GitHub’s automatically generated source-code ZIP.
+
+Then:
+
+1. In Blender, use **Edit → Preferences → Extensions → Install from Disk**.
+2. Select the release ZIP, install it, and enable **Home Model Workshop**.
 3. Open the **Home Model Workshop** tab in the 3D Viewport’s N-panel.
 
 ## 2. Set house and construction dimensions
@@ -28,7 +32,9 @@ Open **House & Construction** and set:
 - **Wall Height / Thickness** for generated walls
 - **Floor Thickness** for room floor slabs
 
-Guide dimensions control the visual Box, L, H, or U outline and the initial staging behavior. They do not resize, clip, or constrain the final room arrangement.
+<div class="section-note">
+  Guide dimensions control the visual Box, L, H, or U outline and the initial staging behavior. They do not resize, clip, or constrain the final room arrangement.
+</div>
 
 ## 3. Choose the starter rooms
 
@@ -62,9 +68,13 @@ Check that each room is reachable in your plan. The current validation does not 
 
 Choose **Validate Project** to check for room overlaps and opening-guide problems.
 
-- Overlapping rooms block rebuilding.
-- The message identifies the affected rooms.
-- A rejected rebuild preserves the previous generated model.
+<div class="section-note">
+  <ul>
+    <li>Overlapping rooms block rebuilding.</li>
+    <li>The message identifies the affected rooms.</li>
+    <li>A rejected rebuild preserves the previous generated model.</li>
+  </ul>
+</div>
 
 Geometry rules to keep in mind:
 
@@ -100,11 +110,3 @@ Frames stay editable, and a rebuild applies the cutouts. A frame must sit on a m
 Save your `.blend` file after arranging rooms and building the model.
 
 The editable room footprints, guide, generated model, labels, and opening frames are scene objects saved with the project.
-
-## 8. Troubleshooting
-
-- **No room footprints:** create a starter plan, add a room, or import selected mesh objects.
-- **Overlap warning:** use the room names in the message and move or resize the named footprints.
-- **No cutout:** check frame type, wall contact, size, and rebuild.
-- **Study or another room is isolated:** add and arrange a hallway, then check access manually.
-- **Room starts outside guide:** move it into the intended layout.

@@ -5,18 +5,18 @@ permalink: /
 ---
 
 <div class="hero-card">
-
-# Home Model Workshop
-
-**A Blender add-on for guided room layout and editable house-model blockouts.**
-
-Home Model Workshop helps you start from a room program and a visual placement guide, arrange the rooms yourself, validate the layout, and build floors and walls from the room footprints. It is designed as a blockout and layout tool, not an automatic architectural designer.
-
-> **Beta note:** Home Model Workshop 0.1.0 was built and smoke-tested in Blender 5.2.2. Generated models are editable blockouts and should be reviewed in Blender before further use. Blender 4.2.0 is the declared minimum version in the extension manifest, but compatibility with Blender 4.2 has not been independently verified.
-
+  <h1>Home Model Workshop</h1>
+  <p><strong>A Blender add-on for guided room layout and editable house-model blockouts.</strong></p>
+  <p>
+    Home Model Workshop helps you start from a room program and a visual placement guide, arrange the rooms yourself, validate the layout, and build floors and walls from the room footprints. It is designed as a blockout and layout tool, not an automatic architectural designer.
+  </p>
+  <blockquote>
+    <p><strong>Beta note:</strong> Home Model Workshop 0.1.0 was built and smoke-tested in Blender 5.2.2. Generated models are editable blockouts and should be reviewed in Blender before further use. Blender 4.2.0 is the declared minimum version in the extension manifest, but compatibility with Blender 4.2 has not been independently verified.</p>
+  </blockquote>
 </div>
 
 <div class="feature-grid">
+
   <div class="card">
     <h3>Start here</h3>
     <ul>
@@ -58,10 +58,11 @@ Home Model Workshop helps you start from a room program and a visual placement g
       <li>Open gaps stay open and shared room edges create one wall.</li>
     </ul>
   </div>
+
 </div>
 
 <div class="section-note">
-For a full step-by-step walkthrough, open the <a href="{{ '/getting-started/' | relative_url }}">Getting Started guide</a>.
+  For a full step-by-step walkthrough, open the <a href="{{ '/getting-started/' | relative_url }}">Getting Started guide</a>.
 </div>
 
 ## Project status

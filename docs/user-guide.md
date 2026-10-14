@@ -4,11 +4,15 @@ title: User Guide
 permalink: /user-guide/
 ---
 
+<div class="hero-card">
+
 # Home Model Workshop User Guide
 
 Home Model Workshop creates an editable house blockout from rectangular room footprints. You arrange the rooms; the selected Box, L, H, or U shape is a visual placement guide. The guide does not control the final building outline, and the add-on is not an automatic architectural designer.
 
-The current beta is intended for review in Blender 5.2.2. The extension manifest declares Blender 4.2.0 as the minimum version, but Blender 4.2 compatibility has not been independently verified.
+> **Beta note:** Home Model Workshop 0.1.0 was built and smoke-tested in Blender 5.2.2. Blender 4.2.0 is the declared minimum version in the extension manifest, but compatibility with Blender 4.2 has not been independently verified.
+
+</div>
 
 ## Quick start
 

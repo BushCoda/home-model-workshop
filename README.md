@@ -8,11 +8,11 @@ Home Model Workshop starts with a room program and a visual footprint guide. You
 
 ## Documentation
 
-- [Documentation home](docs/index.md)
-- [Getting Started](docs/getting-started.md)
-- [User Guide](docs/user-guide.md)
-- [Roadmap](docs/roadmap.md)
-- [Developer Guide](docs/developer-guide.md)
+- [Documentation home](https://bushcoda.github.io/home-model-workshop/)
+- [Getting Started](https://bushcoda.github.io/home-model-workshop/getting-started/)
+- [User Guide](https://bushcoda.github.io/home-model-workshop/user-guide/)
+- [Roadmap](https://bushcoda.github.io/home-model-workshop/roadmap/)
+- [Developer Guide](https://bushcoda.github.io/home-model-workshop/developer-guide/)
 - [Changelog](CHANGELOG.md)
 - [Contributing](CONTRIBUTING.md)
 

@@ -5,13 +5,11 @@ permalink: /developer-guide/
 ---
 
 <div class="hero-card">
-
-# Developer Guide
-
-This guide explains the add-on structure, the core data model, and the main workflow paths used by Home Model Workshop. It is intended for development, debugging, and future maintenance work.
-
-> **Beta note:** Home Model Workshop 0.1.0 was built and smoke-tested in Blender 5.2.2. Blender 4.2.0 is the declared minimum version in the extension manifest, but compatibility with Blender 4.2 has not been independently verified.
-
+  <h1>Developer Guide</h1>
+  <p>This guide explains the add-on structure, the core data model, and the main workflow paths used by Home Model Workshop. It is intended for development, debugging, and future maintenance work.</p>
+  <blockquote>
+    <p><strong>Beta note:</strong> Home Model Workshop 0.1.0 was built and smoke-tested in Blender 5.2.2. Blender 4.2.0 is the declared minimum version in the extension manifest, but compatibility with Blender 4.2 has not been independently verified.</p>
+  </blockquote>
 </div>
 
 ## Overview

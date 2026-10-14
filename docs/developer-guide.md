@@ -4,54 +4,140 @@ title: Developer Guide
 permalink: /developer-guide/
 ---
 
-# Home Model Workshop Developer Guide
+<div class="hero-card">
 
-Home Model Workshop is a single-module Blender add-on. Its core data is ordinary Blender objects with custom properties; the add-on can therefore rebuild geometry from a saved or manually edited room layout.
+# Developer Guide
 
-## Module map
+This guide explains the add-on structure, the core data model, and the main workflow paths used by Home Model Workshop. It is intended for development, debugging, and future maintenance work.
 
-The implementation is in `__init__.py`.
+> **Beta note:** Home Model Workshop 0.1.0 was built and smoke-tested in Blender 5.2.2. Blender 4.2.0 is the declared minimum version in the extension manifest, but compatibility with Blender 4.2 has not been independently verified.
 
-| Area | Main symbols | Responsibility |
-| --- | --- | --- |
-| Scene/object helpers | `get_or_create_collection`, `make_box`, `room_bounds` | Create output collections, mesh boxes, and evaluate room bounds in world space. |
-| Starter-plan inputs | `HF_CustomRoomDefinition`, `HF_Settings`, `build_room_program` | Store scene settings and turn standard and custom room choices into named room records. |
-| Starter footprints and guide | `starter_rooms`, `layout_guide_outline`, `create_layout_guide`, `create_room_footprint` | Stage separate room rectangles and create a separate wire outline for the guide. |
-| Validation and topology | `collect_room_records`, `room_overlap_pairs`, `touching_edge_rooms`, `make_wall_segments` | Read room objects, repair missing/duplicate IDs, reject footprint overlaps, and build shared wall segments. |
-| Openings | `create_opening_frame`, `find_opening_host`, `opening_segment_match`, `HF_OT_add_opening` | Place editable frame objects and match them to generated wall segments during rebuild. |
-| Build and project operations | `HF_OT_build_model`, `HF_OT_validate_project`, `HF_OT_clear_model`, `HF_OT_clear_openings` | Validate, build, and clear generated geometry or opening guides. |
-| User interface | `HF_PT_main_panel`, `HF_Settings.ui_show_*` | Draw the N-panel and retain each section's expanded state in the scene. |
-| Add-on lifecycle | `classes`, `register`, `unregister` | Register classes and scene properties with Blender. |
+</div>
 
-## Data flow
+## Overview
 
-1. `build_room_program(settings)` reads standard room controls and the custom-room list.
-2. `starter_rooms(...)` gives each room a default rectangle and leaves a placement gap between the staged footprints. `layout_shape` is used to draw the guide, not to partition rooms.
-3. Each room footprint is a mesh object in `HF_Room_Layout` with `houseforge_room`, `hf_room_id`, `room_name`, and `hf_room_zone` properties. The primary-suite grouping is stored in `hf_suite_id` when present.
-4. `collect_room_records()` calculates world-space XY bounds and ensures each included footprint has a unique room ID. Duplicating a Blender object copies its properties, so duplicates must be repaired before a build.
-5. `room_overlap_pairs()` compares the rectangles. A non-zero intersection beyond `EPS` blocks both validation and model generation. The build check runs before the old generated collection is cleared.
-6. `make_wall_segments()` splits candidate boundaries at footprint coordinates. `touching_edge_rooms()` records which room lies on each side. An occupied boundary interval becomes one segment; it is then merged with adjacent compatible spans.
-7. `HF_OT_build_model` creates optional room slabs, walls and labels in `HF_Generated_Model`, applies valid opening frames, and joins generated mesh geometry into `HF_House_Model`.
+Home Model Workshop follows a layout-first workflow:
 
-## Important behavior contracts
+1. Create or import room footprints.
+2. Arrange the footprints manually.
+3. Validate the plan.
+4. Build the generated house model.
+5. Place opening frames and rebuild to apply cutouts.
 
-- Room footprints are interpreted as axis-aligned XY rectangles from `matrix_world` bounds. Rotation is unsupported; non-rectangular input meshes are reduced to bounding rectangles when imported.
-- The outline mesh in `HF_Layout_Guide` is visual-only and must never be included in `collect_room_records()` or wall generation.
-- Gaps are intentional. Do not fill empty space with walls or floors implicitly.
-- Shared wall edges should be emitted once, independent of which adjacent room is visited first.
-- Any detected room overlap must stop a build before clearing the existing generated model. Keep the names and object identifiers available in the error popup to distinguish repeated room labels.
-- Opening frames are independent objects. Keep their IDs unique and preserve their host metadata through rebuilds unless a frame is explicitly reattached.
-- UI expansion flags (`ui_show_*`) belong to `HF_Settings`; they are scene state, not global preferences.
+The room footprints are the source of truth. The generated house model is derived output and can be rebuilt at any time.
 
-## Adding or changing a feature
+## Add-on structure
 
-- Add user-facing settings to `HF_Settings` with a concise Blender `name` and `description`.
-- If a new operator is user-invokable, provide a useful `bl_label`, `bl_description`, clear reports, and register it in `classes`.
-- Keep the N-panel grouped with `HF_PT_main_panel.section(...)`. Put controls in the matching section and add usage guidance to the Quick Start & Help area and user guide.
-- Preserve the three separate collections for footprints, visual guide, and generated output.
-- When changing a layout/build behavior, update the user guide and this data-flow/behavior documentation together.
-- Update both `bl_info["version"]` and `blender_manifest.toml` when packaging a release. Keep the packaged `__init__.py` identical to the repository root `__init__.py`.
+The add-on is organized around the Blender extension manifest, the main add-on module, and a documentation site under `docs/`.
 
-## Compatibility
+### Main pieces
 
-The extension manifest declares Blender 4.2.0 as the minimum version. Blender 5.2.2 is the tested development target; the repository does not yet record independent compatibility smoke-test results for Blender 4.2. The extension ID, operator IDs, and scene-property keys retain the legacy `houseforge` prefix to preserve compatibility with existing installs and saved scenes.
+- **`blender_manifest.toml`** — extension metadata, versioning, and minimum Blender requirements
+- **`__init__.py`** — add-on registration, operators, panels, properties, and core behavior
+- **`docs/`** — GitHub Pages documentation site for users and maintainers
+- **`scripts/build-release.ps1`** — release ZIP packaging helper
+- **`.github/ISSUE_TEMPLATE/`** — structured issue templates for bugs and feature requests
+
+## Data model
+
+Home Model Workshop stores layout data in scene objects and custom properties.
+
+### Core object groups
+
+- **Room footprints** — separate editable rectangular objects representing room blocks
+- **Shape guide** — the visual Box, L, H, or U guide used for staging
+- **Generated model** — the built floors, walls, and optional labels
+- **Opening frames** — manual door and window frames used to drive cutouts
+
+### Behavioral rules
+
+- Footprints are axis-aligned rectangles.
+- Rotating a footprint is unsupported.
+- Imported meshes are reduced to world-space XY bounds.
+- Open gaps remain open.
+- Shared edges produce one wall.
+- Overlapping rooms block a rebuild.
+- Duplicate room IDs are repaired during validation or build.
+
+## UI sections
+
+The add-on’s N-panel is divided into the following sections:
+
+- **Quick Start & Help** — overview and workflow summary
+- **House & Construction** — guide size, wall dimensions, and floor thickness
+- **Room Selection & Starting Guide** — starter room selection and guide shape
+- **Custom Room Program** — future starter-plan room list
+- **Import Existing Layout** — convert selected mesh objects into footprints
+- **Model Output** — build options and generated model behavior
+- **Doors & Windows** — opening frame placement and cutouts
+
+These sections are intended to support a manual layout workflow, not automated architectural design.
+
+## Validation and rebuild behavior
+
+Validation is currently focused on structural layout problems:
+
+- room overlaps
+- duplicate room IDs
+- opening-guide issues
+
+It does not guarantee:
+
+- room connectivity
+- hallway access
+- circulation quality
+- architectural correctness
+
+A failed rebuild keeps the previous generated model in place.
+
+## Import workflow
+
+When selected mesh objects are imported as rooms:
+
+1. The add-on reads each object’s world-space XY bounds.
+2. It creates a rectangular footprint for each object.
+3. The original objects remain in the scene.
+4. Rotated or irregular meshes are simplified to axis-aligned rectangles.
+
+This behavior is intentionally conservative so imported geometry can be edited using the same room-footprint workflow as starter plans.
+
+## Generated model workflow
+
+The generated house model is derived from the current footprint arrangement.
+
+- Rebuilds replace the generated floors, walls, and optional labels.
+- Room footprints remain editable after building.
+- Opening frames stay separate so they can be adjusted before rebuild.
+- Frames must align with matching generated walls to produce cutouts.
+
+## Development notes
+
+Keep documentation and user-facing language aligned with the current add-on behavior.
+
+### Important constraints
+
+- Do not describe the tool as an automatic house designer.
+- Keep the beta caveat visible in public-facing docs.
+- Use the exact Blender UI labels when documenting controls.
+- Avoid promising connectivity or architectural validation that the add-on does not currently provide.
+
+## Roadmap alignment
+
+The current direction emphasizes:
+
+- clearer layout validation feedback
+- more dependable opening placement
+- better support for practical room planning
+- improved documentation and usability
+
+Future-feature descriptions should remain clearly marked as planned direction rather than current behavior.
+
+## Related documentation
+
+- [Home]({{ '/' | relative_url }})
+- [Getting Started]({{ '/getting-started/' | relative_url }})
+- [User Guide]({{ '/user-guide/' | relative_url }})
+
+## Notes for maintainers
+
+The docs site is published from the repository’s `/docs` folder. Keep the Jekyll front matter intact and preserve the `relative_url` style for internal links.

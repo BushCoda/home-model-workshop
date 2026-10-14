@@ -9,11 +9,11 @@ permalink: /getting-started/
 ## Install the beta
 
 1. Download `Home_Model_Workshop_Blender_5_2_2_v0_1_0.zip` from the GitHub Releases page.
-2. In Blender, open **Edit → Preferences → Extensions** and choose **Install from Disk**.
+2. In Blender, open **Edit → Preferences → Extensions**, open the menu in the upper-right, and choose **Install from Disk**.
 3. Select the downloaded ZIP, install it, and enable **Home Model Workshop**.
 4. In the 3D Viewport, open the **Home Model Workshop** tab in the N-panel.
 
-The add-on is developed against Blender 5.2.2 and declares Blender 4.2 as its minimum version.
+The extension manifest declares Blender 4.2.0 as the minimum version. Blender 5.2.2 is the development target; confirm compatibility with smoke tests before release.
 
 ## Create your first layout
 
@@ -28,6 +28,6 @@ The initial placement is a starting arrangement. The shape outline does not move
 
 ## Add doors and windows
 
-Build the walls first, then use the **Doors & Windows** section to place a frame on a wall. Adjust its position or size and rebuild to apply the cutout. See [Doors and Windows](user-guide.md#adding-doors-and-windows) for details.
+Build the walls first, then use the **Doors & Windows** section to place a frame on a wall. Adjust its position or size and rebuild to apply the cutout. See [Doors and Windows]({{ '/user-guide/' | relative_url }}#adding-doors-and-windows) for details.
 
 For a walkthrough of every setting, continue to the [User Guide]({{ '/user-guide/' | relative_url }}).

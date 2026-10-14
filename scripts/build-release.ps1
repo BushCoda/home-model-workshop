@@ -2,6 +2,7 @@ $ErrorActionPreference = 'Stop'
 $repoRoot = Split-Path -Parent $PSScriptRoot
 $manifestPath = Join-Path $repoRoot 'blender_manifest.toml'
 $sourcePath = Join-Path $repoRoot '__init__.py'
+$licensePath = Join-Path $repoRoot 'LICENSE'
 $manifestText = Get-Content -LiteralPath $manifestPath -Raw
 $sourceText = Get-Content -LiteralPath $sourcePath -Raw
 $manifestVersionMatch = [regex]::Match($manifestText, '(?m)^version\s*=\s*"([^"]+)"')
@@ -17,5 +18,5 @@ $version = $manifestVersionMatch.Groups[1].Value
 $dist = Join-Path $repoRoot 'dist'
 New-Item -ItemType Directory -Path $dist -Force | Out-Null
 $archivePath = Join-Path $dist "Home_Model_Workshop_Blender_5_2_2_v$($version.Replace('.', '_')).zip"
-Compress-Archive -Path $sourcePath,$manifestPath -DestinationPath $archivePath -CompressionLevel Optimal -Force
+Compress-Archive -LiteralPath $sourcePath,$manifestPath,$licensePath -DestinationPath $archivePath -CompressionLevel Optimal -Force
 Write-Output "Created $archivePath"

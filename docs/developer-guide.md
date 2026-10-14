@@ -54,4 +54,4 @@ The implementation is in `__init__.py`.
 
 ## Compatibility
 
-The extension manifest declares Blender 4.2 as the minimum version and is developed/tested against Blender 5.2.2. The extension ID, operator IDs, and scene-property keys retain the legacy `houseforge` prefix to preserve compatibility with existing installs and saved scenes. UI grouping uses boolean properties and disclosure-arrow buttons stored on the scene so the collapsible sections work in the target Blender runtime.
+The extension manifest declares Blender 4.2.0 as the minimum version. Blender 5.2.2 is the development target; the repository does not yet record independent compatibility smoke-test results. The extension ID, operator IDs, and scene-property keys retain the legacy `houseforge` prefix to preserve compatibility with existing installs and saved scenes. UI grouping uses boolean properties and disclosure-arrow buttons stored on the scene.

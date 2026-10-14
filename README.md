@@ -4,7 +4,7 @@
 
 Home Model Workshop starts with a room program and a visual footprint guide. You arrange and resize the rooms, validate the layout, and build the walls and floors when the plan is ready.
 
-> **Current release: 0.1.0 beta.** This release is intended for user feedback. Generated models are editable blockouts and should be reviewed in Blender.
+> **Planned initial release: 0.1.0 beta.** The release has not yet been published. Generated models are editable blockouts and should be reviewed in Blender.
 
 ## Documentation
 
@@ -28,7 +28,7 @@ Home Model Workshop starts with a room program and a visual footprint guide. You
 ## Repository structure
 
 ```text
-Home_Model_Workshop_GitHub/
+home-model-workshop/
 ├── __init__.py                 # Blender add-on code
 ├── blender_manifest.toml       # Blender extension metadata
 ├── docs/                       # GitHub Pages site and user/developer guides
@@ -38,12 +38,12 @@ Home_Model_Workshop_GitHub/
 ```
 ## Requirements
 
-- Blender 4.2 or later; developed against Blender 5.2.2.
+- Minimum Blender version declared in the extension manifest: 4.2.0. Blender 5.2.2 is the development target; compatibility should be confirmed with smoke tests before release.
 - Rectangular, axis-aligned room footprints. Rotated or irregular imported meshes are reduced to world-space bounding rectangles.
 
 ## Install
 
-Download the extension ZIP from the repository's **Releases** page. In Blender, open **Edit → Preferences → Extensions → Install from Disk**, select the ZIP, install it, and enable **Home Model Workshop**.
+Download the installable extension ZIP attached to a release. Do not use GitHub's automatically generated source-code ZIP. In Blender, open **Edit → Preferences → Extensions**, open the menu in the upper-right, and choose **Install from Disk**. Select the extension ZIP, install it, and enable **Home Model Workshop**.
 
 ## GitHub Pages documentation
 

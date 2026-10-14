@@ -1,7 +1,7 @@
 title: Home Model Workshop
 description: Build editable house models from room layouts in Blender.
 theme: minima
-url: ""
+url: "https://bushcoda.github.io"
 baseurl: "/home-model-workshop"
 markdown: kramdown
 header_pages:

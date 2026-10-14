@@ -6,3 +6,6 @@ __pycache__/
 .DS_Store
 Thumbs.db
 dist/
+.venv/
+docs/_site/
+docs/.jekyll-cache/

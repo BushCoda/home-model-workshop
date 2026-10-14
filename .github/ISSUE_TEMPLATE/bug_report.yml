@@ -17,6 +17,27 @@ body:
       placeholder: 5.2.2
     validations:
       required: true
+  - type: dropdown
+    id: operating-system
+    attributes:
+      label: Operating system
+      options:
+        - Windows
+        - macOS
+        - Linux
+        - Other
+    validations:
+      required: true
+  - type: dropdown
+    id: installation-method
+    attributes:
+      label: Installation method
+      options:
+        - Install from Disk using a release ZIP
+        - Installed from another source
+        - Other
+    validations:
+      required: true
   - type: textarea
     id: steps
     attributes:
@@ -41,5 +62,12 @@ body:
     attributes:
       label: Console output or screenshots
       description: Remove personal or sensitive information before sharing.
+    validations:
+      required: false
+  - type: textarea
+    id: reproducer
+    attributes:
+      label: Minimal reproducer (optional)
+      description: If possible, attach a small .blend file or list the shortest steps to reproduce the issue.
     validations:
       required: false

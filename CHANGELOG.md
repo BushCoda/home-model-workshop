@@ -1,8 +1,8 @@
 # Changelog
 
-## 0.1.0 Beta 1
+## Unreleased — 0.1.0 Beta 1
 
-Initial public beta of Home Model Workshop.
+Planned initial public beta of Home Model Workshop. This entry will be dated when the release is approved and published.
 
 - Guided room selection and separate room-footprint placement.
 - Box, L, H, and U visual placement guides.

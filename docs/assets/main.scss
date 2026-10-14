@@ -1,199 +1,143 @@
 ---
 ---
 
-/* Theme defaults: parchment, charcoal, and muted sage. */
-$background-color: #f7f4ed;
-$text-color: #292e2a;
-$brand-color: #41624e;
-$grey-color: #646960;
-$grey-color-light: #d9d8cc;
-$grey-color-dark: #42483f;
-$base-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
-  Roboto, Helvetica, Arial, sans-serif;
-$base-font-size: 17px;
-$base-line-height: 1.7;
-$content-width: 1000px;
-
 @import "minima";
 
-/* Keep decoration away from long reading passages. */
-body {
-  background: #f7f4ed;
-  color: #292e2a;
-}
-
-.site-header {
-  border-top: 4px solid #41624e;
-  border-bottom: 1px solid #d9d8cc;
-  background-color: #f0eee5;
-  background-image:
-    linear-gradient(rgba(65, 98, 78, 0.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(65, 98, 78, 0.035) 1px, transparent 1px);
-  background-size: 24px 24px;
-}
-
-.site-title,
-.site-title:visited {
-  color: #292e2a;
-  font-weight: 650;
-  letter-spacing: -0.025em;
-}
-
-.site-nav .page-link {
-  color: #292e2a;
-  font-weight: 500;
+/* Page width and spacing */
+.wrapper {
+  max-width: 1100px;
 }
 
 .page-content {
-  padding: 48px 0;
+  padding-top: 2rem;
+  padding-bottom: 3rem;
 }
 
-.post-content {
-  max-width: 78ch;
-}
-
-.post-title {
-  font-size: 2.25rem;
-  line-height: 1.2;
-  letter-spacing: -0.035em;
-}
-
-.post-content h2 {
-  margin-top: 2.5rem;
-  padding-bottom: 0.4rem;
-  border-bottom: 1px solid #d9d8cc;
-  font-size: 1.65rem;
-  line-height: 1.3;
-}
-
+.post-content h1,
+.post-content h2,
 .post-content h3 {
-  margin-top: 1.75rem;
-  font-size: 1.25rem;
-  line-height: 1.4;
+  line-height: 1.2;
+  margin-top: 2rem;
 }
 
-.post-content li {
-  margin-bottom: 0.45rem;
+.post-content h1:first-child,
+.post-content h2:first-child,
+.post-content h3:first-child {
+  margin-top: 0;
 }
 
-a,
-a:visited {
-  color: #41624e;
+.post-content p,
+.post-content ul,
+.post-content ol {
+  line-height: 1.7;
 }
 
-.post-content a {
-  text-decoration: underline;
-  text-underline-offset: 0.2em;
+/* Homepage hero */
+.post-content > p strong:first-child {
+  display: inline-block;
+  font-size: 1.1rem;
+  line-height: 1.5;
 }
 
-a:hover {
-  color: #294735;
-}
-
-a:focus-visible,
-button:focus-visible,
-input:focus-visible,
-summary:focus-visible {
-  outline: 3px solid #41624e;
-  outline-offset: 4px;
-}
-
-/* Existing Markdown beta notes become distinct panels. */
-.post-content blockquote {
-  margin: 1.5rem 0;
+.post-content > blockquote {
+  border-left: 4px solid #2b6cb0;
+  background: #f7fbff;
   padding: 1rem 1.25rem;
-  background: #e9eee5;
-  border-left: 4px solid #41624e;
-  color: #292e2a;
-  font-size: 1rem;
-  font-style: normal;
-  letter-spacing: normal;
+  border-radius: 0.5rem;
+  color: #334155;
 }
 
-.post-content blockquote > :last-child {
+.post-content > blockquote p {
   margin-bottom: 0;
 }
 
-/* Inline code and command examples. */
-code,
+/* Links */
+a {
+  text-underline-offset: 0.15em;
+}
+
+a:hover {
+  text-decoration-thickness: 2px;
+}
+
+/* Tables */
+table {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+}
+
+th,
+td {
+  padding: 0.75rem 1rem;
+  border: 1px solid #d7dde5;
+}
+
+th {
+  background: #f4f7fb;
+  text-align: left;
+}
+
+/* Lists */
+ul,
+ol {
+  padding-left: 1.5rem;
+}
+
+li + li {
+  margin-top: 0.35rem;
+}
+
+/* Code blocks */
 pre,
-.highlight {
-  background: #eeece3;
-  border-color: #d9d8cc;
-  border-radius: 4px;
+code {
+  font-size: 0.95em;
 }
 
 pre {
   padding: 1rem;
+  border-radius: 0.5rem;
   overflow-x: auto;
 }
 
-pre > code {
-  border: 0;
-  padding: 0;
+/* Simple button-like links for the home page */
+.post-content a[href*="/getting-started/"],
+.post-content a[href*="/user-guide/"],
+.post-content a[href*="/developer-guide/"] {
+  display: inline-block;
+  margin: 0.25rem 0.35rem 0.25rem 0;
+  padding: 0.55rem 0.9rem;
+  border-radius: 0.5rem;
+  border: 1px solid #2b6cb0;
+  background: #2b6cb0;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
 }
 
-/* Wide reference tables scroll instead of widening the page. */
-.post-content table {
-  display: block;
-  max-width: 100%;
-  overflow-x: auto;
-  color: #292e2a;
+.post-content a[href*="/getting-started/"]:hover,
+.post-content a[href*="/user-guide/"]:hover,
+.post-content a[href*="/developer-guide/"]:hover {
+  background: #1f5a96;
+  border-color: #1f5a96;
+  text-decoration: none;
 }
 
-.post-content table th {
-  background: #e9eee5;
-}
-
-.post-content table tr:nth-child(even) {
-  background: #f0eee5;
-}
-
-.post-content table th,
-.post-content table td {
-  border-color: #d9d8cc;
-}
-
-/* Ready for genuine product screenshots in a later step. */
-.post-content img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-  margin: 1.25rem auto;
-  border: 1px solid #d9d8cc;
-  border-radius: 4px;
-}
-
-.site-footer {
-  border-top: 1px solid #d9d8cc;
-  background: #f0eee5;
-}
-
-.footer-col-wrapper {
-  color: #646960;
-}
-
-@media screen and (max-width: 600px) {
+/* Mobile adjustments */
+@media screen and (max-width: 800px) {
   .page-content {
-    padding: 28px 0;
+    padding-top: 1.5rem;
+    padding-bottom: 2rem;
   }
 
-  .site-title {
-    font-size: 1.1rem;
-    max-width: calc(100% - 60px);
-  }
-
-  .site-nav {
-    background: #f7f4ed;
-    border-color: #d9d8cc;
-    z-index: 10;
-  }
-
-  .post-title {
-    font-size: 1.85rem;
-  }
-
-  .post-content h2 {
-    font-size: 1.4rem;
+  .post-content a[href*="/getting-started/"],
+  .post-content a[href*="/user-guide/"],
+  .post-content a[href*="/developer-guide/"] {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-right: 0;
   }
 }

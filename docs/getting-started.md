@@ -4,23 +4,29 @@ title: Getting Started
 permalink: /getting-started/
 ---
 
+<div class="hero-card">
+
 # Getting Started
+
+Home Model Workshop gives you a guided starting point for laying out rooms in Blender. This page walks through install, first setup, validation, and building your first house blockout.
+
+> **Beta note:** Home Model Workshop 0.1.0 was built and smoke-tested in Blender 5.2.2. Blender 4.2.0 is the declared minimum version in the extension manifest, but compatibility with Blender 4.2 has not been independently verified.
+
+</div>
 
 ## 1. Install and open the add-on
 
-1. Download the installable ZIP from the GitHub Releases page after the release is published.
+1. Download the installable ZIP from the GitHub Releases page after a release is published.
 2. In Blender, use **Edit → Preferences → Extensions → Install from Disk**, select the ZIP, install it, and enable **Home Model Workshop**.
 3. Open the **Home Model Workshop** tab in the 3D Viewport’s N-panel.
 
-The extension manifest declares Blender 4.2.0 as the minimum version. Blender 5.2.2 is the tested target for this beta; compatibility with Blender 4.2 has not been independently verified.
-
 ## 2. Set house and construction dimensions
 
-Open **House & Construction** to set:
+Open **House & Construction** and set:
 
-- **House Width / Depth** — the guide width and depth and the initial staging area.
-- **Wall Height / Thickness** — the dimensions used for generated walls.
-- **Floor Thickness** — the thickness of generated room floors.
+- **House Width / Depth** for the guide size and initial room staging area
+- **Wall Height / Thickness** for generated walls
+- **Floor Thickness** for room floor slabs
 
 Guide dimensions control the visual Box, L, H, or U outline and the initial staging behavior. They do not resize, clip, or constrain the final room arrangement.
 
@@ -37,7 +43,7 @@ Open **Room Selection & Starting Guide** and choose a Box, L, H, or U guide shap
 
 Choose **Create Rooms & Shape Guide** to create separate movable rectangular room footprints.
 
-If a starter plan already exists, Blender will ask you to replace the current Home Model Workshop footprints and guide. This does not automatically remove the previously built model.
+If a starter plan already exists, confirm that you want to replace the current Home Model Workshop footprints and guide. This does not automatically remove the previously built model.
 
 Beginner-friendly Blender steps:
 
@@ -75,9 +81,9 @@ Build the walls first.
 
 In **Doors & Windows**:
 
-- Enable **Doorway Placement** or **Window Placement**.
-- Set the width and height for doors or windows.
-- For windows, set the **Window Sill Height**.
+- Enable **Doorway Placement** or **Window Placement**
+- Set the width and height for doors or windows
+- For windows, set the **Window Sill Height**
 
 Then use **Place Door Frame** or **Place Window Frame**:
 

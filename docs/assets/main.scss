@@ -1,0 +1,199 @@
+---
+---
+
+/* Theme defaults: parchment, charcoal, and muted sage. */
+$background-color: #f7f4ed;
+$text-color: #292e2a;
+$brand-color: #41624e;
+$grey-color: #646960;
+$grey-color-light: #d9d8cc;
+$grey-color-dark: #42483f;
+$base-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+  Roboto, Helvetica, Arial, sans-serif;
+$base-font-size: 17px;
+$base-line-height: 1.7;
+$content-width: 1000px;
+
+@import "minima";
+
+/* Keep decoration away from long reading passages. */
+body {
+  background: #f7f4ed;
+  color: #292e2a;
+}
+
+.site-header {
+  border-top: 4px solid #41624e;
+  border-bottom: 1px solid #d9d8cc;
+  background-color: #f0eee5;
+  background-image:
+    linear-gradient(rgba(65, 98, 78, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(65, 98, 78, 0.035) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.site-title,
+.site-title:visited {
+  color: #292e2a;
+  font-weight: 650;
+  letter-spacing: -0.025em;
+}
+
+.site-nav .page-link {
+  color: #292e2a;
+  font-weight: 500;
+}
+
+.page-content {
+  padding: 48px 0;
+}
+
+.post-content {
+  max-width: 78ch;
+}
+
+.post-title {
+  font-size: 2.25rem;
+  line-height: 1.2;
+  letter-spacing: -0.035em;
+}
+
+.post-content h2 {
+  margin-top: 2.5rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid #d9d8cc;
+  font-size: 1.65rem;
+  line-height: 1.3;
+}
+
+.post-content h3 {
+  margin-top: 1.75rem;
+  font-size: 1.25rem;
+  line-height: 1.4;
+}
+
+.post-content li {
+  margin-bottom: 0.45rem;
+}
+
+a,
+a:visited {
+  color: #41624e;
+}
+
+.post-content a {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+a:hover {
+  color: #294735;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+summary:focus-visible {
+  outline: 3px solid #41624e;
+  outline-offset: 4px;
+}
+
+/* Existing Markdown beta notes become distinct panels. */
+.post-content blockquote {
+  margin: 1.5rem 0;
+  padding: 1rem 1.25rem;
+  background: #e9eee5;
+  border-left: 4px solid #41624e;
+  color: #292e2a;
+  font-size: 1rem;
+  font-style: normal;
+  letter-spacing: normal;
+}
+
+.post-content blockquote > :last-child {
+  margin-bottom: 0;
+}
+
+/* Inline code and command examples. */
+code,
+pre,
+.highlight {
+  background: #eeece3;
+  border-color: #d9d8cc;
+  border-radius: 4px;
+}
+
+pre {
+  padding: 1rem;
+  overflow-x: auto;
+}
+
+pre > code {
+  border: 0;
+  padding: 0;
+}
+
+/* Wide reference tables scroll instead of widening the page. */
+.post-content table {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+  color: #292e2a;
+}
+
+.post-content table th {
+  background: #e9eee5;
+}
+
+.post-content table tr:nth-child(even) {
+  background: #f0eee5;
+}
+
+.post-content table th,
+.post-content table td {
+  border-color: #d9d8cc;
+}
+
+/* Ready for genuine product screenshots in a later step. */
+.post-content img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 1.25rem auto;
+  border: 1px solid #d9d8cc;
+  border-radius: 4px;
+}
+
+.site-footer {
+  border-top: 1px solid #d9d8cc;
+  background: #f0eee5;
+}
+
+.footer-col-wrapper {
+  color: #646960;
+}
+
+@media screen and (max-width: 600px) {
+  .page-content {
+    padding: 28px 0;
+  }
+
+  .site-title {
+    font-size: 1.1rem;
+    max-width: calc(100% - 60px);
+  }
+
+  .site-nav {
+    background: #f7f4ed;
+    border-color: #d9d8cc;
+    z-index: 10;
+  }
+
+  .post-title {
+    font-size: 1.85rem;
+  }
+
+  .post-content h2 {
+    font-size: 1.4rem;
+  }
+}

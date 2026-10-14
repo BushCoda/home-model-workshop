@@ -17,59 +17,51 @@ Home Model Workshop helps you start from a room program and a visual placement g
 </div>
 
 <div class="feature-grid">
+  <div class="card">
+    <h3>Start here</h3>
+    <ul>
+      <li><a href="{{ '/getting-started/' | relative_url }}">Getting Started</a></li>
+      <li><a href="{{ '/user-guide/' | relative_url }}">User Guide</a></li>
+      <li><a href="{{ '/developer-guide/' | relative_url }}">Developer Guide</a></li>
+    </ul>
+  </div>
 
-<div class="card">
+  <div class="card">
+    <h3>What it does</h3>
+    <ul>
+      <li>Creates editable room footprints from starter plans or imported meshes</li>
+      <li>Uses Box, L, H, and U visual placement guides</li>
+      <li>Lets you arrange rooms manually before building the model</li>
+      <li>Validates overlaps and opening-guide issues before rebuilds</li>
+      <li>Builds floors, walls, and optional room labels from the room footprints</li>
+    </ul>
+  </div>
 
-### Start here
+  <div class="card">
+    <h3>Quick workflow</h3>
+    <ol>
+      <li>Install and enable the add-on.</li>
+      <li>Choose a starter guide shape and room set.</li>
+      <li>Create the starter plan.</li>
+      <li>Move and resize the room footprints into the layout you want.</li>
+      <li>Validate the layout.</li>
+      <li>Build or rebuild the house model.</li>
+    </ol>
+  </div>
 
-- [Getting Started]({{ '/getting-started/' | relative_url }})
-- [User Guide]({{ '/user-guide/' | relative_url }})
-- [Developer Guide]({{ '/developer-guide/' | relative_url }})
-
-</div>
-
-<div class="card">
-
-### What it does
-
-- Creates editable room footprints from starter plans or imported meshes
-- Uses Box, L, H, and U visual placement guides
-- Lets you arrange rooms manually before building the model
-- Validates overlaps and opening-guide issues before rebuilds
-- Builds floors, walls, and optional room labels from the room footprints
-
-</div>
-
-<div class="card">
-
-### Quick workflow
-
-1. Install and enable the add-on.
-2. Choose a starter guide shape and room set.
-3. Create the starter plan.
-4. Move and resize the room footprints into the layout you want.
-5. Validate the layout.
-6. Build or rebuild the house model.
-
-</div>
-
-<div class="card">
-
-### Notes
-
-- The guide is visual only; the room footprints define the final layout.
-- Rooms do not need to fill the guide.
-- Hallways and circulation areas are placed manually.
-- Open gaps stay open and shared room edges create one wall.
-
-</div>
-
+  <div class="card">
+    <h3>Notes</h3>
+    <ul>
+      <li>The guide is visual only; the room footprints define the final layout.</li>
+      <li>Rooms do not need to fill the guide.</li>
+      <li>Hallways and circulation areas are placed manually.</li>
+      <li>Open gaps stay open and shared room edges create one wall.</li>
+    </ul>
+  </div>
 </div>
 
 <div class="section-note">
-
-For a full step-by-step walkthrough, open the [Getting Started guide]({{ '/getting-started/' | relative_url }}).
-
+For a full step-by-step walkthrough, open the <a href="{{ '/getting-started/' | relative_url }}">Getting Started guide</a>.
 </div>
 
 ## Project status

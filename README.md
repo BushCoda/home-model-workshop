@@ -48,6 +48,26 @@ Home Model Workshop helps you start from a room program and a visual placement g
 - Room footprints are axis-aligned rectangles.
 - Imported rotated or irregular meshes are reduced to world-space bounding rectangles.
 
+## Contributing
+
+Contributions are welcome. If you want to report a bug, suggest an improvement, or discuss a change, please open an issue or a pull request.
+
+- **Report a bug:** open a GitHub Issue with steps to reproduce and any relevant screenshots or logs.
+- **Request a feature:** open a GitHub Issue describing the problem you want to solve and the workflow you have in mind.
+- **Pull requests:** are welcome for documentation fixes, bug fixes, and improvements that match the project direction.
+
+## Support
+
+- [GitHub Issues](https://github.com/BushCoda/home-model-workshop/issues)
+- [GitHub Discussions](https://github.com/BushCoda/home-model-workshop/discussions)
+- [Documentation home](https://bushcoda.github.io/home-model-workshop/)
+
+## Links
+
+- [Docs](https://bushcoda.github.io/home-model-workshop/)
+- [Releases](https://github.com/BushCoda/home-model-workshop/releases)
+- [Issues](https://github.com/BushCoda/home-model-workshop/issues)
+
 ## License
 
 This project is licensed under [GPL-3.0-or-later](LICENSE).
